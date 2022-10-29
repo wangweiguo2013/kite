@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
-import PageHeader from './components/PageHeader.vue';
 
 </script>
 
 <template>
-<PageHeader />
 <HelloWorld msg="Vite + Vue" />
 </template>
 
