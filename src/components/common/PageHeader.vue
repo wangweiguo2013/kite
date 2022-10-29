@@ -14,6 +14,12 @@ const toggle = () => {
     setThemes(theme.value)
 }
 
+const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+if (prefersDarkScheme.matches) {
+    theme.value = 'dark'
+} else {
+    theme.value = 'light'
+}
 setThemes(theme.value)
 </script>
 <style>
