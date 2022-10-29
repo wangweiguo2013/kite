@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import PageFooter from './components/common/PageFooter.vue';
 import HelloWorld from './components/HelloWorld.vue'
 
 </script>
 
 <template>
   <router-view />
+  <PageFooter />
 </template>
 
 <style scoped>
