@@ -1,5 +1,5 @@
 <template>
-    <div class="page-header">
+    <div class="page-header" v-ripple>
         <button @click="toggle">切换</button>
     </div>
 </template>

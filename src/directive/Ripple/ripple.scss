@@ -1,0 +1,17 @@
+@keyframes ripple {
+    from {
+        opacity: .5;
+        transform: scale(1);
+    }to{
+        transform: scale(100);
+        opacity: .2;
+    }
+}
+.ripple {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: red;
+    // animation: ripple 3s;
+}
