@@ -1,7 +1,15 @@
 import { debounce, throttle } from "lodash-es"
 import { Directive, Plugin, reactive } from "vue"
+import type { DirectiveBinding } from "vue"
 import './ripple.scss'
 
+interface RippleOptions {
+
+}
+interface RippleHTMLElement extends HTMLElement {
+  _ripple?: RippleOptions
+
+}
 function createRipple() {
   const el = document.createElement('div')
   el.className = 'ripple'
@@ -14,24 +22,12 @@ function beforeMount(el, binding, vnode, prevVnode) {
 let initialSize = 4
 let step = 4
 let currentSize = 4
-function mounted(el: HTMLElement, binding, vnode, preVnode) {
-  el.style.position = 'relative'
-  el.style.overflow = 'hidden'
-  const rect = el.getBoundingClientRect()
-  const rippleEl = createRipple()
-  el.appendChild(rippleEl)
-  el.addEventListener('mouseenter', throttle((event) => {
-      console.log(event);
-      const { pageX, pageY } = event
-      rippleEl.style.left = pageX - rect.left + 'px'
-      rippleEl.style.top = pageY - rect.top + 'px'
-     
-      setTimeout(() => {
-        currentSize = currentSize + step
-        const scale = currentSize / initialSize
-        rippleEl.style.transform = `scale(${scale})`
-      },20)
-  }, 300))
+function mounted(el: RippleHTMLElement, binding: DirectiveBinding) {
+  el._ripple = {
+    task: null
+  }
+  el.addEventListener('touchstart', () => {}, {passive:true})
+  el.addEventListener('touchmove', () => {}, {passive:true})
 }
 
 const Ripple: Directive & Plugin = {
