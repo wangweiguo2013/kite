@@ -52,12 +52,7 @@ function computeRippleStyles(element: RippleHTMLElement, event: TouchEvent): Rip
 
   return { x, y, centerX, centerY, size }
 }
-function beforeMount(el, binding, vnode, prevVnode) {
 
-}
-let initialSize = 4
-let step = 4
-let currentSize = 4
 function mounted(el: RippleHTMLElement, binding: DirectiveBinding<RippleOptions>) {
   el._ripple = {
     ...(binding.value ?? {}),
@@ -159,10 +154,6 @@ function updated(el: RippleHTMLElement, binding: DirectiveBinding<RippleOptions>
 }
 
 const Ripple: Directive & Plugin = {
-  // 在元素被插入到 DOM 前调用
-  beforeMount,
-  // 在绑定元素的父组件
-  // 及他自己的所有子节点都挂载完成后调用
   mounted,
   updated,
   unmounted,
