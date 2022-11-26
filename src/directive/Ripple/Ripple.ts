@@ -1,7 +1,7 @@
-import { debounce, throttle } from "lodash-es"
 import { Directive, Plugin, reactive } from "vue"
 import type { DirectiveBinding } from "vue"
 import './ripple.scss'
+import '../../style/common.scss'
 
 interface RippleOptions {
   tasker: number | null
